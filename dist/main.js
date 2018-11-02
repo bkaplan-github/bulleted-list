@@ -60,7 +60,7 @@ function updateContent() {
 }
 
 function addBullet(id) {
-  var widget = '\r\n<div id="bullet-' + id + '" class="slds-form-element">\r\n<div class="slds-form-element__control slds-input-has-fixed-addon">\r\n<input class="slds-input" type="text" id="input-"' + id + ' placeholder="List Item ' + (id+1) + '" />\r\n</div>\r\n</div>';
+  var widget = '\r\n<div id="bullet-' + id + '" class="slds-form-element">\r\n<div class="slds-form-element__control slds-input-has-fixed-addon">\r\n<input class="slds-input" type="text" id="input-' + id + '" placeholder="List Item ' + (id+1) + '" />\r\n</div>\r\n</div>';
 
   $('#bullets-container').append(widget);
 
