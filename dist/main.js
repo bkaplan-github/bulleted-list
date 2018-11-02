@@ -64,6 +64,7 @@ function addBullet(id) {
 
   $('#bullets-container').append(widget);
 
+  $('#bullet-'+id).val(bullets[id]);
   if (id >= num_bullets) $('#bullet-'+id).hide();
 
   $('#input-'+id).data({'id': id}).change(function() {
