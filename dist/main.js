@@ -86,7 +86,7 @@ sdk.getData(function (data) {
 
   $("#num-bullets").change(function() {
     num_bullets = $(this).val();
-    $('#num-bullets-val').val(num_bullets);
+    $('#num-bullets-val').html(num_bullets);
     for (var i=0; i<bullets.length; i++) {
       if (i < num_bullets) $('#bullet-'+i).show();
       else $('#bullet-'+i).hide();
