@@ -64,7 +64,7 @@ function addBullet(id) {
 
   $('#bullets-container').append(widget);
 
-  $('#bullet-'+id).val(bullets[id]);
+  $('#input-'+id).val(bullets[id]);
   if (id >= num_bullets) $('#bullet-'+id).hide();
 
   $('#input-'+id).data({'id': id}).change(function() {
@@ -81,11 +81,11 @@ sdk.getData(function (data) {
   num_bullets = data['num_bullets'];
   if (typeof num_bullets == 'undefined') num_bullets = 5;
 
-  // update the slider
+  // initialize the slider
   $("#num-bullets").val(num_bullets);
   $("#num-bullets-val").html(num_bullets);
 
-  // update the bullet inputs
+  // initialize the bullet inputs
   for (var i=0; i<bullets.length; i++) addBullet(i);
 
   $("#num-bullets").mousemove(function() {
