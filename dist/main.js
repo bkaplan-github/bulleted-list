@@ -5,12 +5,7 @@ var sdk = new window.sfdc.BlockSDK();
 
 var bullets;
 var num_bullets;
-
-var padding;
-var alignment;
-var spacing;
-var bull_spacing;
-var mobile;
+var options;
 
 /*
 function debounce (func, wait, immediate) {
@@ -54,13 +49,13 @@ function htmlUnescape(str){
 }
 
 function updateContent() {
-  var html = '<table width="100%" border="0" cellspacing="0" cellpadding="0">\r\n<tr>\r\n<td align="left" valign="top" style="padding: 20px;">\r\n<table cellpadding="0" cellspacing="0" border="0">';
+  var html = '<table width="100%" border="0" cellspacing="0" cellpadding="0">\r\n<tr>\r\n<td align="'+options['alignment']+'" valign="top" style="padding: '+options['padding']+';">\r\n<table cellpadding="0" cellspacing="0" border="0">';
   for (var i=0; i<num_bullets; i++) {
-    html += '\r\n<tr>\r\n<td width="10" align="left" valign="top" style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;">&bull;</td>\r\n<td align="left" valign="top" style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;">'+htmlEscape(bullets[i])+'</td>\r\n</tr>';
+    html += '\r\n<tr>\r\n<td width="'+options['bull_spacing']+'" align="left" valign="top" style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: '+options['bull_size']+'px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;">&bull;</td>\r\n<td align="left" valign="top" style="font-family: '+options['font']+'; font-weight: normal; font-size: '+options['size']+'px; line-height: '+options['spacing']+'px; color: #000001; mso-line-height-rule: exactly;">'+htmlEscape(bullets[i])+'</td>\r\n</tr>';
   }
   html += '\r\n</table>\r\n</td>\r\n</tr>\r\n</table>';
 
-  sdk.setData({'num_bullets': num_bullets, 'bullets': bullets});
+  sdk.setData({'num_bullets': num_bullets, 'bullets': bullets, 'options': options});
   sdk.setSuperContent(html);
   sdk.setContent(html);
 }
@@ -82,10 +77,24 @@ function addBullet(id) {
 }
 
 sdk.getData(function (data) {
+  // read data
   bullets = data['bullets'];
-  if (typeof bullets == 'undefined') bullets = ["","","","","","","","","",""];
   num_bullets = data['num_bullets'];
+  options = data['options'];
+
+  // set defaults
+  if (typeof bullets == 'undefined') bullets = ["","","","","","","","","",""];
   if (typeof num_bullets == 'undefined') num_bullets = 5;
+  if (typeof options == 'undefined') options = {
+    'padding': "20px",
+    'alignment': "center",
+    'spacing': "20",
+    'bull_spacing': "10",
+    'font': "Arial, Helvetica, sans-serif",
+    'size': "16",
+    'bull_size': "16",
+    'mobile': ""
+  };
 
   // initialize the slider
   $("#num-bullets").val(num_bullets);
@@ -93,6 +102,16 @@ sdk.getData(function (data) {
 
   // initialize the bullet inputs
   for (var i=0; i<bullets.length; i++) addBullet(i);
+
+  // initialize options
+  $("#padding").val(options['padding']);
+  $("#alignment").val(options['alignment']);
+  $("#spacing").val(options['spacing']);
+  $("#bull-spacing").val(options['bull_spacing']);
+  $("#font").val(options['font']);
+  $("#size").val(options['size']);
+  $("#bull-size").val(options['bull_size']);
+  $("#mobile").val(options['mobile']);
 
   $("#num-bullets").mousemove(function() {
     var n = $(this).val();
@@ -105,6 +124,46 @@ sdk.getData(function (data) {
       }
       updateContent();
     }
+  });
+
+  $("#padding").change(function() {
+    options['padding'] = $(this).val();
+    updateContent();
+  });
+
+  $("#alignment").change(function() {
+    options['alignment'] = $(this).val();
+    updateContent();
+  });
+
+  $("#spacing").change(function() {
+    options['spacing'] = $(this).val();
+    updateContent();
+  });
+
+  $("#bull-spacing").change(function() {
+    options['bull_spacing'] = $(this).val();
+    updateContent();
+  });
+
+  $("#font").change(function() {
+    options['font'] = $(this).val();
+    updateContent();
+  });
+
+  $("#size").change(function() {
+    options['size'] = $(this).val();
+    updateContent();
+  });
+
+  $("#bull-size").change(function() {
+    options['bull_size'] = $(this).val();
+    updateContent();
+  });
+
+  $("#mobile").change(function() {
+    options['mobile'] = $(this).val();
+    updateContent();
   });
 
 });
