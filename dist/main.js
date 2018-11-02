@@ -6,6 +6,12 @@ var sdk = new window.sfdc.BlockSDK();
 var bullets;
 var num_bullets;
 
+var padding;
+var alignment;
+var spacing;
+var bull_spacing;
+var mobile;
+
 /*
 function debounce (func, wait, immediate) {
   var timeout;
@@ -48,9 +54,9 @@ function htmlUnescape(str){
 }
 
 function updateContent() {
-  var html = '<table width="100%" border="0" cellspacing="0" cellpadding="0">\r\n<tr>\r\n<td align="left" valign="top">\r\n<table width="100%" cellpadding="0" cellspacing="0" border="0">';
+  var html = '<table width="100%" border="0" cellspacing="0" cellpadding="0">\r\n<tr>\r\n<td align="left" valign="top" style="padding: 20px;">\r\n<table cellpadding="0" cellspacing="0" border="0">';
   for (var i=0; i<num_bullets; i++) {
-    html += '\r\n<tr>\r\n<td align="right" valign="top" style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;">&bull;</td>\r\n<td align="left" valign="top" style="padding-left: 20px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;">'+htmlEscape(bullets[i])+'</td>\r\n</tr>';
+    html += '\r\n<tr>\r\n<td width="10" align="left" valign="top" style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;">&bull;</td>\r\n<td align="left" valign="top" style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;">'+htmlEscape(bullets[i])+'</td>\r\n</tr>';
   }
   html += '\r\n</table>\r\n</td>\r\n</tr>\r\n</table>';
 
