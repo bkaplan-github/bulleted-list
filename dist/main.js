@@ -52,7 +52,7 @@ function updateContent() {
   var html = '<table width="100%" border="0" cellspacing="0" cellpadding="0">\r\n<tr>\r\n<td align="'+options['alignment']+'" valign="top" style="padding: '+options['padding']+';">\r\n<table cellpadding="0" cellspacing="0" border="0">';
   for (var i=0; i<num_bullets; i++) {
     var padding = i > 0 ? options['spacing']+'px' : 0;
-    html += '\r\n<tr>\r\n<td width="'+options['bull_spacing']+'" align="left" valign="top" style="padding-top: '+padding+'; font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: '+options['bull_size']+'px; line-height: '+options['size']+'px; color: #000001; mso-line-height-rule: exactly;">&bull;</td>\r\n<td align="left" valign="top" style="padding-top: '+options['spacing']+'px; font-family: '+options['font']+'; font-weight: normal; font-size: '+options['size']+'px; line-height: '+options['size']+'px; color: #000001; mso-line-height-rule: exactly;">'+htmlEscape(bullets[i])+'</td>\r\n</tr>';
+    html += '\r\n<tr>\r\n<td width="'+options['bull_spacing']+'" align="left" valign="top" style="padding-top: '+padding+'; font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: '+options['bull_size']+'px; line-height: '+options['size']+'px; color: #000001; mso-line-height-rule: exactly;">&bull;</td>\r\n<td align="left" valign="top" style="padding-top: '+padding+'; font-family: '+options['font']+'; font-weight: normal; font-size: '+options['size']+'px; line-height: '+options['size']+'px; color: #000001; mso-line-height-rule: exactly;">'+htmlEscape(bullets[i])+'</td>\r\n</tr>';
   }
   html += '\r\n</table>\r\n</td>\r\n</tr>\r\n</table>';
 
@@ -89,7 +89,7 @@ sdk.getData(function (data) {
   if (typeof options == 'undefined') options = {
     'padding': "20px",
     'alignment': "left",
-    'spacing': "30",
+    'spacing': "10",
     'bull_spacing': "15",
     'font': "Arial, Helvetica, sans-serif",
     'size': "16",
