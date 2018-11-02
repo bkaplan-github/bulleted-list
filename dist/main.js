@@ -80,6 +80,9 @@ sdk.getData(function (data) {
   num_bullets = data['num_bullets'];
   if (typeof num_bullets == 'undefined') num_bullets = 5;
 
+  $("#num-bullets").val(num_bullets);
+  $("#num-bullets-val").val(num_bullets);
+
   for (var i=0; i<bullets.length; i++) addBullet(i);
 
   $("#num-bullets").mousemove(function() {
