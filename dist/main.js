@@ -80,9 +80,11 @@ sdk.getData(function (data) {
   num_bullets = data['num_bullets'];
   if (typeof num_bullets == 'undefined') num_bullets = 5;
 
+  // update the slider
   $("#num-bullets").val(num_bullets);
-  $("#num-bullets-val").val(num_bullets);
+  $("#num-bullets-val").html(num_bullets);
 
+  // update the bullet inputs
   for (var i=0; i<bullets.length; i++) addBullet(i);
 
   $("#num-bullets").mousemove(function() {
