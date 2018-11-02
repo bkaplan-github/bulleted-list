@@ -49,10 +49,10 @@ function htmlUnescape(str){
 }
 
 function updateContent() {
-  var html = '<table width="100%" border="0" cellspacing="0" cellpadding="0">\r\n<tr>\r\n<td align="'+options['alignment']+'" valign="top" style="padding: '+options['padding']+';">\r\n<table cellpadding="0" cellspacing="0" border="0">';
+  var html = '<table width="100%" border="0" cellspacing="0" cellpadding="0">\r\n<tr>\r\n<td class="'+options['mobile']+'" align="'+options['alignment']+'" valign="top" style="padding: '+options['padding']+';">\r\n<table cellpadding="0" cellspacing="0" border="0">';
   for (var i=0; i<num_bullets; i++) {
     var padding = i > 0 ? options['spacing']+'px' : 0;
-    html += '\r\n<tr>\r\n<td width="'+options['bull_spacing']+'" align="left" valign="top" style="padding-top: '+padding+'; font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: '+options['bull_size']+'px; line-height: '+options['size']+'px; color: #000001; mso-line-height-rule: exactly;">&bull;</td>\r\n<td align="left" valign="top" style="padding-top: '+padding+'; font-family: '+options['font']+'; font-weight: normal; font-size: '+options['size']+'px; line-height: '+options['size']+'px; color: #000001; mso-line-height-rule: exactly;">'+htmlEscape(bullets[i])+'</td>\r\n</tr>';
+    html += '\r\n<tr>\r\n<td class="'+options['mobile_bullet']+'" width="'+options['bull_spacing']+'" align="left" valign="top" style="padding-top: '+padding+'; font-family: '+options['font']+'; font-weight: normal; font-size: '+options['bull_size']+'px; line-height: '+options['size']+'px; color: '+options['bull_color']+'; mso-line-height-rule: exactly;">&bull;</td>\r\n<td class="'+options['mobile_item']+'" align="left" valign="top" style="padding-top: '+padding+'; font-family: '+options['font']+'; font-weight: normal; font-size: '+options['size']+'px; line-height: '+options['size']+'px; color: '+options['color']+'; mso-line-height-rule: exactly;">'+htmlEscape(bullets[i])+'</td>\r\n</tr>';
   }
   html += '\r\n</table>\r\n</td>\r\n</tr>\r\n</table>';
 
@@ -94,7 +94,11 @@ sdk.getData(function (data) {
     'font': "Arial, Helvetica, sans-serif",
     'size': "16",
     'bull_size': "30",
-    'mobile': ""
+    'color': "#000001",
+    'bull_color': "#000001",
+    'mobile': "",
+    'mobile_bullet': "",
+    'mobile_item': ""
   };
 
   // initialize the slider
@@ -112,7 +116,11 @@ sdk.getData(function (data) {
   $("#font").val(options['font']);
   $("#size").val(options['size']);
   $("#bull-size").val(options['bull_size']);
+  $("#color").val(options['color']);
+  $("#bull-color").val(options['bull_color']);
   $("#mobile").val(options['mobile']);
+  $("#mobile_bullet").val(options['mobile-bullet']);
+  $("#mobile_item").val(options['mobile-item']);
 
   $("#num-bullets").mousemove(function() {
     var n = $(this).val();
@@ -162,8 +170,28 @@ sdk.getData(function (data) {
     updateContent();
   });
 
+  $("#color").change(function() {
+    options['color'] = $(this).val();
+    updateContent();
+  });
+
+  $("#bull-color").change(function() {
+    options['bull_color'] = $(this).val();
+    updateContent();
+  });
+
   $("#mobile").change(function() {
     options['mobile'] = $(this).val();
+    updateContent();
+  });
+
+  $("#mobile-bullet").change(function() {
+    options['mobile_bullet'] = $(this).val();
+    updateContent();
+  });
+
+  $("#mobile-item").change(function() {
+    options['mobile_item'] = $(this).val();
     updateContent();
   });
 
