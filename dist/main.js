@@ -69,7 +69,6 @@ function addBullet(id) {
   $('#input-'+id).data({'id': id}).change(function() {
     var id = $(this).data('id');
     var value = $(this).val();
-console.log(value);
     bullets[id] = value;
     updateContent();
   });
@@ -83,8 +82,6 @@ sdk.getData(function (data) {
 
   for (var i=0; i<bullets.length; i++) addBullet(i);
 
-  updateContent();
-
   $("#num-bullets").mousemove(function() {
     var n = $(this).val();
     if (n != num_bullets) {
@@ -94,6 +91,7 @@ sdk.getData(function (data) {
         if (i < num_bullets) $('#bullet-'+i).show();
         else $('#bullet-'+i).hide();
       }
+      updateContent();
     }
   });
 
