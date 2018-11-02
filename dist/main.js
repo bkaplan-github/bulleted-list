@@ -49,13 +49,9 @@ function htmlUnescape(str){
 
 function updateContent() {
   var html = '<table width="100%" border="0" cellspacing="0" cellpadding="0">\r\n<tr>\r\n<td align="left" valign="top">\r\n<table width="100%" cellpadding="0" cellspacing="0" border="0">';
-
   for (var i=0; i<num_bullets; i++) {
-    var bullet = bullets[i];
-
-    html += '\r\n<tr>\r\n<td align="right" valign="top" style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;">&bull;</td>\r\n<td align="left" valign="top" style="padding-left: 20px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;">'+htmlEscape(bullet)+'</td>\r\n</tr>';
+    html += '\r\n<tr>\r\n<td align="right" valign="top" style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;">&bull;</td>\r\n<td align="left" valign="top" style="padding-left: 20px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;">'+htmlEscape(bullets[i])+'</td>\r\n</tr>';
   }
-
   html += '\r\n</table>\r\n</td>\r\n</tr>\r\n</table>';
 
   sdk.setData({'num_bullets': num_bullets, 'bullets': bullets});
@@ -95,5 +91,6 @@ sdk.getData(function (data) {
       if (i < num_bullets) $('#bullet-'+id).show();
       else $('#bullet-'+id).hide();
     }
-  }
+  });
+  
 });
