@@ -88,9 +88,9 @@ sdk.getData(function (data) {
     num_bullets = $(this).val();
     console.log(num_bullets);
     for (var i=0; i<bullets.length; i++) {
-      if (i < num_bullets) $('#bullet-'+id).show();
+      if (i < num_bullets) $('#bullet-'+i).show();
       else $('#bullet-'+id).hide();
     }
   });
-  
+
 });
