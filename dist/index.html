@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Parameterized Block</title>
+		<link rel="stylesheet" href="./lightning.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+	</head>
+	<body>
+		<article class="slds-card">
+		  <div class="slds-card__header slds-grid">
+		    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+		      <div class="slds-media__figure">
+		        <span class="slds-icon_container slds-icon-standard-contact" title="Bulleted List">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="custom67" width="30" height="30"><path d="M13 12.7l-.3-.5c-.1-.2-.3-.3-.6-.3 0 0-.1.1-.2.1l-.8.3c-.3-.3-.7-.5-1.1-.6l-.2-.9c0-.3-.3-.5-.6-.5h-.6c-.2 0-.5.2-.6.5l-.1.9c-.4.1-.8.3-1.1.6L6 12h-.3c-.2 0-.4.1-.5.3l-.3.5c-.1.2-.1.5.2.7l.7.6c-.1.2-.1.4-.1.6s0 .5.1.7l-.7.6c-.3.2-.3.5-.2.7l.3.5c.1.2.3.3.5.3H6l.8-.3c.3.3.7.5 1.1.6l.1.9c.1.3.4.5.6.5h.6c.3 0 .6-.2.6-.5l.2-.9c.4-.1.8-.4 1.1-.7l.8.3c.1.1.2.1.2.1.3 0 .5-.1.6-.3l.3-.5c.1-.2.1-.6-.2-.8l-.7-.5c.1-.3.1-.5.1-.7 0-.2 0-.4-.1-.6l.7-.6c.2-.2.3-.5.2-.8zm-4.1 3.7c-.9 0-1.6-.7-1.6-1.6s.7-1.7 1.6-1.7c.9 0 1.7.7 1.7 1.7s-.8 1.6-1.7 1.6zm10.1-7l-.5-.5v-.5-.5l.5-.5c.2-.1.2-.4.1-.6l-.2-.4c-.1-.1-.3-.2-.4-.2h-.2l-.7.3c-.3-.3-.6-.5-.9-.5l-.1-.8c-.1-.2-.3-.4-.5-.4h-.5c-.2 0-.4.2-.5.4l-.1.7c-.3.1-.6.3-.9.6l-.7-.4h-.1c-.2 0-.4.1-.5.3l-.2.4c-.1.2-.1.4.1.6l.6.4c-.1.2-.1.4-.1.6 0 .1 0 .3.1.5l-.6.4c-.2.2-.2.4-.1.6l.2.4c.1.2.3.3.5.3h.1l.7-.3c.3.2.6.4.9.5l.1.7c.1.2.3.4.5.4h.5c.2 0 .5-.2.5-.4l.1-.7c.3-.1.7-.3.9-.6l.7.3h.2c.1 0 .3-.1.4-.2l.2-.4c.1-.1.1-.4-.1-.5zm-3.1.3c-.8 0-1.4-.6-1.4-1.3s.6-1.3 1.4-1.3 1.3.6 1.3 1.3-.6 1.3-1.3 1.3z"></path></svg>
+		        </span>
+		      </div>
+		      <div class="slds-media__body">
+		        <h2>
+		          <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="[object Object]">
+		            <span class="slds-text-heading_small">Bulleted List</span>
+		          </a>
+		        </h2>
+		      </div>
+		    </header>
+		  </div>
+		  <div class="slds-card__body slds-card__body_inner">
 
+				<div class="slds-form-element">
+					<label class="slds-form-element__label" for="num-bullets">
+						<span class="slds-slider-label">
+							<span class="slds-slider-label__label">Number of Bullets</span>
+						</span>
+					</label>
+					<div class="slds-form-element__control">
+						<div class="slds-slider">
+							<input type="range" id="num-bullets" class="slds-slider__range" value="5" min="1" max="10" />
+							<span class="slds-slider__value" id="slider-id-01-val" aria-hidden="true">5</span>
+						</div>
+					</div>
+				</div>
+
+				<label class="slds-form-element__label" for="bullets-container">Bullets</label>
+				<div id="bullets-container" style="padding:0.5rem; background-color:#f4f6f9;">
+
+<!--
+					<div class="slds-form-element">
+						<div class="slds-form-element__control slds-input-has-fixed-addon">
+							<input class="slds-input" type="text" id="input-[[id]]" placeholder="List Item" />
+							<button id="delete-bullet-[[id]]" class="slds-button slds-button_icon slds-button_icon-border-filled" title="Delete List Item">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="delete" width="100%" height="100%"><path d="M21 4.6h-5.8V2.8c0-1-.8-1.9-1.8-1.9h-2.8c-1 0-1.8.9-1.8 1.9v1.8H3c-.4 0-.7.3-.7.7v1.4c0 .4.3.7.7.7h18c.4 0 .7-.3.7-.7V5.3c0-.4-.3-.7-.7-.7zM10.6 3.2c0-.2.2-.4.5-.4h1.8c.3 0 .5.2.5.4v1.4h-2.8V3.2zm8.6 6H4.8c-.3 0-.6.4-.6.7v10.9c0 1.3 1 2.3 2.3 2.3h11c1.3 0 2.3-1 2.3-2.3V9.9c0-.3-.3-.7-.6-.7zm-8.6 10.2c0 .3-.2.4-.4.4h-1c-.2 0-.4-.1-.4-.4v-6.5c0-.3.2-.4.4-.4h1c.2 0 .4.1.4.4v6.5zm4.6 0c0 .3-.2.4-.4.4h-1c-.2 0-.4-.1-.4-.4v-6.5c0-.3.2-.4.4-.4h1c.2 0 .4.1.4.4v6.5z"></path>
+								</svg>
+								<span class="slds-assistive-text">Delete List Item</span>
+							</button>
+							<button id="add-bullet-[[id]]" class="slds-button slds-button_icon slds-button_icon-border-filled" title="Add List Item">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="delete" width="100%" height="100%"><path d="M21 4.6h-5.8V2.8c0-1-.8-1.9-1.8-1.9h-2.8c-1 0-1.8.9-1.8 1.9v1.8H3c-.4 0-.7.3-.7.7v1.4c0 .4.3.7.7.7h18c.4 0 .7-.3.7-.7V5.3c0-.4-.3-.7-.7-.7zM10.6 3.2c0-.2.2-.4.5-.4h1.8c.3 0 .5.2.5.4v1.4h-2.8V3.2zm8.6 6H4.8c-.3 0-.6.4-.6.7v10.9c0 1.3 1 2.3 2.3 2.3h11c1.3 0 2.3-1 2.3-2.3V9.9c0-.3-.3-.7-.6-.7zm-8.6 10.2c0 .3-.2.4-.4.4h-1c-.2 0-.4-.1-.4-.4v-6.5c0-.3.2-.4.4-.4h1c.2 0 .4.1.4.4v6.5zm4.6 0c0 .3-.2.4-.4.4h-1c-.2 0-.4-.1-.4-.4v-6.5c0-.3.2-.4.4-.4h1c.2 0 .4.1.4.4v6.5z"></path>
+								</svg>
+								<span class="slds-assistive-text">Add List Item</span>
+							</button>
+						</div>
+					</div>
+-->
+
+				</div>
+
+				<div class="slds-form-element">
+					<label class="slds-form-element__label" for="spacing">Spacing</label>
+					<div class="slds-form-element__control slds-input-has-fixed-addon">
+						<input class="slds-input" type="text" id="spacing" placeholder="Value" />
+					</div>
+				</div>
+
+		  </div>
+		  <footer class="slds-card__footer"></footer>
+		</article>
+		
+		<script src="./blocksdk.js"></script>
+		<script src="./main.js"></script>
+	</body>
+</html>
