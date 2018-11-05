@@ -14,43 +14,43 @@ Heroku app: https://bulleted-list.herokuapp.com/
 ## How to Use
 Simply select the number of bullets using the slider at the top, and type in the bullet text in the inputs below.  Then set the rendering options.  Options are:
 
-# Padding
+Padding
 Padding around the content area.
 
-# Alignment
+Alignment
 Controls the horizontal alignment of the list if none of the list items wrap.
 
-# Spacing
+Spacing
 Controls the spacing between items of the list.
 
-# Bullet Spacing
+Bullet Spacing
 Controls the spacing between the bullets and items.
 
-# Line Height
+Line Height
 Controls the line height of each bullet item.
 
-# Font Family
+Font Family
 The font family used for the text.
 
-# Text Size
+Text Size
 The size of the text of the items.
 
-# Bullet Size
+Bullet Size
 The size of the text of the bullets themselves.
 
-# Text Color
+Text Color
 The color of the item text.
 
-# Bullet Color
+Bullet Color
 The color of the bullets.
 
-# Mobile Class
+### Mobile Class
 The class(es) applied to the padding around the bullets on mobile displays.
 
-# Mobile Bullet Class
+Mobile Bullet Class
 The class(es) applied to the bullets on mobile displays.
 
-# Mobile Item Class
+Mobile Item Class
 The class(es) applied to the items on mobile displays.
 
 ## Future Enhancements
