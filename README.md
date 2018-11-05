@@ -1,5 +1,4 @@
 # bulleted-list
-Bulleted List Content Block
 
 Bulleted List is a custom Salesforce Marketing Cloud Content Builder block using the [blocksdk](https://github.com/salesforce-marketingcloud/blocksdk).
 
