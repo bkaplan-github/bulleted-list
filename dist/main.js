@@ -54,6 +54,7 @@ function htmlEscape(str) {
 
 // update the data and build the content -- call after changes are made to inputs
 function updateContent() {
+  // generate the code for the table containing the bulleted list, inserting the input values
   var html = '<table width="100%" border="0" cellspacing="0" cellpadding="0">\r\n<tr>\r\n<td class="'+options['mobile']+'" align="'+options['alignment']+'" valign="top" style="padding: '+options['padding']+';">\r\n<table cellpadding="0" cellspacing="0" border="0">';
   for (var i=0; i<num_bullets; i++) {
     var padding = i > 0 ? options['spacing']+'px' : 0;
