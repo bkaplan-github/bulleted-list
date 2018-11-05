@@ -52,7 +52,7 @@ function updateContent() {
   var html = '<table width="100%" border="0" cellspacing="0" cellpadding="0">\r\n<tr>\r\n<td class="'+options['mobile']+'" align="'+options['alignment']+'" valign="top" style="padding: '+options['padding']+';">\r\n<table cellpadding="0" cellspacing="0" border="0">';
   for (var i=0; i<num_bullets; i++) {
     var padding = i > 0 ? options['spacing']+'px' : 0;
-    html += '\r\n<tr>\r\n<td class="'+options['mobile_bullet']+'" width="'+options['bull_spacing']+'" align="left" valign="top" style="padding-top: '+padding+'; font-family: '+options['font']+'; font-weight: normal; font-size: '+options['bull_size']+'px; line-height: '+options['size']+'px; color: '+options['bull_color']+'; mso-line-height-rule: exactly;">&bull;</td>\r\n<td class="'+options['mobile_item']+'" align="left" valign="top" style="padding-top: '+padding+'; font-family: '+options['font']+'; font-weight: normal; font-size: '+options['size']+'px; line-height: '+options['size']+'px; color: '+options['color']+'; mso-line-height-rule: exactly;">'+htmlEscape(bullets[i])+'</td>\r\n</tr>';
+    html += '\r\n<tr>\r\n<td class="'+options['mobile_bullet']+'" width="'+options['bull_spacing']+'" align="left" valign="top" style="padding-top: '+padding+'; font-family: '+options['font']+'; font-weight: normal; font-size: '+options['bull_size']+'px; line-height: '+options['line_height']+'px; color: '+options['bull_color']+'; mso-line-height-rule: exactly;">&bull;</td>\r\n<td class="'+options['mobile_item']+'" align="left" valign="top" style="padding-top: '+padding+'; font-family: '+options['font']+'; font-weight: normal; font-size: '+options['size']+'px; line-height: '+options['line_height']+'px; color: '+options['color']+'; mso-line-height-rule: exactly;">'+htmlEscape(bullets[i])+'</td>\r\n</tr>';
   }
   html += '\r\n</table>\r\n</td>\r\n</tr>\r\n</table>';
 
@@ -92,6 +92,7 @@ sdk.getData(function (data) {
     'spacing': "10",
     'bull_spacing': "15",
     'font': "Arial, Helvetica, sans-serif",
+    'line_height': "20",
     'size': "16",
     'bull_size': "30",
     'color': "#000001",
@@ -114,6 +115,7 @@ sdk.getData(function (data) {
   $("#spacing").val(options['spacing']);
   $("#bull-spacing").val(options['bull_spacing']);
   $("#font").val(options['font']);
+  $("#line-height").val(options['line_height']);
   $("#size").val(options['size']);
   $("#bull-size").val(options['bull_size']);
   $("#color").val(options['color']);
@@ -162,6 +164,11 @@ sdk.getData(function (data) {
 
   $("#size").change(function() {
     options['size'] = $(this).val();
+    updateContent();
+  });
+
+  $("#line-height").change(function() {
+    options['line_height'] = $(this).val();
     updateContent();
   });
 
