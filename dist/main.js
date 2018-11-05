@@ -3,8 +3,9 @@
 // var sdk = new BlockSDK();
 var sdk = new window.sfdc.BlockSDK();
 
-var bullets;
+// state data for the content block
 var num_bullets;
+var bullets;
 var options;
 
 /*
