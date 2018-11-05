@@ -8,6 +8,7 @@ var num_bullets;
 var options;
 
 /*
+// stop the editor from updating too often
 function debounce (func, wait, immediate) {
   var timeout;
   return function() {
@@ -22,12 +23,25 @@ function debounce (func, wait, immediate) {
     if (callNow) func.apply(context, args);
   };
 }
-*/
 
+// helper to create regular expressions
 function escapeRegExp(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
+// unescape HTML special characters
+function htmlUnescape(str){
+  return str
+    .replace(/&quot;/g, '"')
+    // .replace(/&#39;/g, "'")
+    // .replace(/&#x2F;/g, '/'); // forward slash
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
+}
+*/
+
+// escape HTML special characters
 function htmlEscape(str) {
   return str
     .replace(/&/g, '&amp;')
@@ -38,16 +52,7 @@ function htmlEscape(str) {
     .replace(/>/g, '&gt;');
 }
 
-function htmlUnescape(str){
-  return str
-    .replace(/&quot;/g, '"')
-    // .replace(/&#39;/g, "'")
-    // .replace(/&#x2F;/g, '/'); // forward slash
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&amp;/g, '&');
-}
-
+// update the data and build the content -- call after changes are made to inputs
 function updateContent() {
   var html = '<table width="100%" border="0" cellspacing="0" cellpadding="0">\r\n<tr>\r\n<td class="'+options['mobile']+'" align="'+options['alignment']+'" valign="top" style="padding: '+options['padding']+';">\r\n<table cellpadding="0" cellspacing="0" border="0">';
   for (var i=0; i<num_bullets; i++) {
@@ -61,6 +66,7 @@ function updateContent() {
   sdk.setContent(html);
 }
 
+// create an item input and add callback for when it changes
 function addBullet(id) {
   var widget = '\r\n<div id="bullet-' + id + '" class="slds-form-element">\r\n<div class="slds-form-element__control slds-input-has-fixed-addon">\r\n<input class="slds-input" type="text" id="input-' + id + '" placeholder="List Item ' + (id+1) + '" />\r\n</div>\r\n</div>';
 
@@ -69,6 +75,7 @@ function addBullet(id) {
   $('#input-'+id).val(bullets[id]);
   if (id >= num_bullets) $('#bullet-'+id).hide();
 
+  // add callback for when an item input changes
   $('#input-'+id).data({'id': id}).change(function() {
     var id = $(this).data('id');
     var value = $(this).val();
@@ -77,13 +84,14 @@ function addBullet(id) {
   });
 }
 
+// main getData function -- gets stored state data for the content block
 sdk.getData(function (data) {
   // read data
   bullets = data['bullets'];
   num_bullets = data['num_bullets'];
   options = data['options'];
 
-  // set defaults
+  // set defaults for previously undefined data
   if (typeof bullets == 'undefined') bullets = ["","","","","","","","","",""];
   if (typeof num_bullets == 'undefined') num_bullets = 5;
   if (typeof options == 'undefined') options = {
@@ -106,10 +114,10 @@ sdk.getData(function (data) {
   $("#num-bullets").val(num_bullets);
   $("#num-bullets-val").html(num_bullets);
 
-  // initialize the bullet inputs
+  // initialize the item inputs
   for (var i=0; i<bullets.length; i++) addBullet(i);
 
-  // initialize options
+  // initialize option inputs
   $("#padding").val(options['padding']);
   $("#alignment").val(options['alignment']);
   $("#spacing").val(options['spacing']);
@@ -124,6 +132,7 @@ sdk.getData(function (data) {
   $("#mobile_bullet").val(options['mobile-bullet']);
   $("#mobile_item").val(options['mobile-item']);
 
+  // add callback for when the slider changes
   $("#num-bullets").mousemove(function() {
     var n = $(this).val();
     if (n != num_bullets) {
@@ -137,6 +146,7 @@ sdk.getData(function (data) {
     }
   });
 
+  // add callbacks for when the option inputs change
   $("#padding").change(function() {
     options['padding'] = $(this).val();
     updateContent();
