@@ -12,32 +12,46 @@ Heroku app: https://bulleted-list.herokuapp.com/
 [![Bulleted List](https://github.com/bkaplan-github/bulleted-list/blob/master/BulletedList.jpg)](https://github.com/bkaplan-github/bulleted-list)
 
 ## How to Use
-Create your parameterized HTML and add your block of SET statements with default values to the top like this:
+Simply select the number of bullets using the slider at the top, and type in the bullet text in the inputs below.  Then set the rendering options.  Options are:
 
-    %%[ /* PARAMETERS START */
-    SET @Body_Text = "Here is some text"
-    SET @Text_Color = "#ff0000"
-    /* PARAMETERS END */ ]%%
+# Padding
+Padding around the content area.
 
-    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-            <td align="left" valign="top" style="font-family: Helvetica, Arial, sans-serif; 
-            font-weight: normal; font-size: 16px; line-height: 20px; color: %%=v(@Text_Color)=%%; 
-            mso-line-height-rule: exactly;">%%=v(@Body_Text)=%%</td>
-        </tr>
-    </table>
+# Alignment
+Controls the horizontal alignment of the list if none of the list items wrap.
 
-Note that the AMPscript block containing the SET statement must be at the top, and the lines above and below the SET statements must be in the exact format shown above in order for the SET statements to be properly parsed. You can add additional AMPscript blocks below.
+# Spacing
+Controls the spacing between items of the list.
 
-Paste your code into the "Code" input. The parameter inputs will automatically be created so that a user can enter or edit the values in the inputs (in the above example, for body text and text color) without knowing AMPscript. Parameter input names will be taken from the names of the AMPscript variables with underscores turned into spaces.
+# Bullet Spacing
+Controls the spacing between the bullets and items.
 
-The code will be rendered in the editor with the variables replaced with parameter values. You can add alternate HTML code to the "Preview" input that will be rendered in the editor instead (useful if your code won't render properly in the editor).
+# Line Height
+Controls the line height of each bullet item.
 
-The above example isn't particularly useful since a text block can be edited using the freeform editor, but the Parameterized Content Block is intended for more complex code that cannot be edited in the freeform editor, code that typically would require a custom content block.
+# Font Family
+The font family used for the text.
 
-Parameterized Content Block is useful for easily adding an interface to nearly any parameterized code without having to create your own custom content block. No knowledge of the Block SDK, Javascript, Github, or Heroku are required.  Once the interface has been created, no AMPscript or HTML knowledge is needed to edit the parameters.
+# Text Size
+The size of the text of the items.
 
-Examples are included in the "examples" folder for a mobile-swappable image, text on a background image, and embedding a video in an email (all things that cannot be done with standard freeform content blocks), all of which can now be implemented using Parameterized Content Block without having to create a new custom content block.
+# Bullet Size
+The size of the text of the bullets themselves.
+
+# Text Color
+The color of the item text.
+
+# Bullet Color
+The color of the bullets.
+
+# Mobile Class
+The class(es) applied to the padding around the bullets on mobile displays.
+
+# Mobile Bullet Class
+The class(es) applied to the bullets on mobile displays.
+
+# Mobile Item Class
+The class(es) applied to the items on mobile displays.
 
 ## Future Enhancements
-Add support for other types of inputs (select menu, sliders, color pickers, etc).
+Add support for numbered lists.
