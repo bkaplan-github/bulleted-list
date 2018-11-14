@@ -44,10 +44,10 @@ The color of the item text.
 The color of the bullets.
 
 #### Mobile Class
-The class(es) applied to the padding around the bullets on mobile displays.
+The class(es) applied to the bulleted list on mobile displays.
 
 #### Mobile Bullet Class
-The class(es) applied to the bulleted list on mobile displays.
+The class(es) applied to the bullets on mobile displays.
 
 #### Mobile Item Class
 The class(es) applied to the items on mobile displays.
