@@ -53,4 +53,4 @@ The class(es) applied to the bullets on mobile displays.
 The class(es) applied to the items on mobile displays.
 
 ## Future Enhancements
-Add support for numbered lists.  Add support for cycling of colors for bullets and list items.
+Add support for numbered lists.  Add support for cycling of colors for bullets and list items.  Add color picker for the colors.
