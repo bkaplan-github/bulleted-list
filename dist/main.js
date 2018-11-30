@@ -131,8 +131,8 @@ sdk.getData(function (data) {
   $("#color").val(options['color']);
   $("#bull-color").val(options['bull_color']);
   $("#mobile").val(options['mobile']);
-  $("#mobile_bullet").val(options['mobile-bullet']);
-  $("#mobile_item").val(options['mobile-item']);
+  $("#mobile-bullet").val(options['mobile_bullet']);
+  $("#mobile-item").val(options['mobile_item']);
 
   // add callback for when the slider changes
   $("#num-bullets").mousemove(function() {
