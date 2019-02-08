@@ -26,7 +26,7 @@ Controls the spacing between items of the list.
 Controls the spacing between the bullets and items.
 
 #### Line Height
-Controls the line height of each bullet item.
+Controls the line height of each bullet item.  Note that this affects the spacing between lines of a bullet when it wraps and also affects the spacing between items of the list.
 
 #### Font Family
 The font family used for the text.
