@@ -14,7 +14,7 @@ Heroku app: https://bulleted-list.herokuapp.com/
 Simply select the number of bullets using the slider at the top, and type in the bullet text in the inputs below.  Then set the rendering options.  Options are:
 
 #### Padding
-Padding around the content area.
+Padding around the content block.
 
 #### Alignment
 Controls the horizontal alignment of the list if none of the list items wrap.
