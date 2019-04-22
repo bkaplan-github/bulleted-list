@@ -53,6 +53,7 @@ The class(es) applied to the bullets on mobile displays.
 The class(es) applied to the items on mobile displays.
 
 ## Future Enhancements
+* Allow links in the list.
 * Add rollover descriptions of the parameters.
 * Add support for numbered lists.
 * Add support for cycling of colors for bullets and list items.
