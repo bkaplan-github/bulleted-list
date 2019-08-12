@@ -52,6 +52,10 @@ The class(es) applied to the bullets on mobile displays.
 #### Mobile Item Class
 The class(es) applied to the items on mobile displays.
 
+## Versions
+1.1 - changed source code folder structure and modified spacing between parameters
+1.0 - initial release
+
 ## Future Enhancements
 * Allow links in the list.
 * Add rollover descriptions of the parameters.
