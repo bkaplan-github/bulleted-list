@@ -53,8 +53,8 @@ The class(es) applied to the bullets on mobile displays.
 The class(es) applied to the items on mobile displays.
 
 ## Versions
-#### 1.1 - changed source code folder structure and modified spacing between parameters
-#### 1.0 - initial release
+* 1.1 - changed source code folder structure and modified spacing between parameters
+* 1.0 - initial release
 
 ## Future Enhancements
 * Allow links in the list.
